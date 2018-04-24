@@ -55,7 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
           <a class="nav-link" href="#">Publicações</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://github.com/HFSVBC/BioPercentis_INSA" target="_blank">Source</a>
+          <a class="nav-link" href="https://github.com/HFSVBC/BioTool_INSA" target="_blank">Source</a>
         </li>
       </ul>
     </div>
