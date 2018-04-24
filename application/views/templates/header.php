@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-  <title>BioPercentis</title>
+  <title>BIO TOOL</title>
   <meta name="description" content="">
   <link rel="canonical" href="">
   <!-- Facebook Open Graph -->
@@ -31,20 +31,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
   <script async type="text/javascript" src="<?php echo base_url('frameworks/bootstrap/js/bootstrap.min.js');?>"></script>
   <!-- Main CSS -->
   <link async rel="stylesheet" type="text/css" href="<?php echo base_url('custom/css/main.css');?>">
+  <!-- Main JS -->
+  <script async type="text/javascript" src="<?php echo base_url('custom/js/main.js');?>"></script>
 </head>
 <body>
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">BioPercentis</a>
+    <a class="navbar-brand" href="#">BIO TOOL</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Estudo e_COR</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link" href="#">Dislipidemia</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Recomendações</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Publicações</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/HFSVBC/BioPercentis_INSA" target="_blank">Source</a>

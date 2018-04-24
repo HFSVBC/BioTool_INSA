@@ -1,5 +1,5 @@
 # BioPercentis
-## Aythors
+## Authors
 * Hugo curado
 * [...]
 ## Licence
