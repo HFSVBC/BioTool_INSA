@@ -29,6 +29,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
   <!-- Bootstrap -->
   <link async rel="stylesheet" type="text/css" href="<?php echo base_url('frameworks/bootstrap/css/bootstrap.min.css');?>">
   <script async type="text/javascript" src="<?php echo base_url('frameworks/bootstrap/js/bootstrap.min.js');?>"></script>
+  <!-- Font Awsome -->
+  <link async rel="stylesheet" type="text/css" href="<?php echo base_url('plugin/fontawesome/css/fontawesome-all.min.css');?>">
   <!-- Main CSS -->
   <link async rel="stylesheet" type="text/css" href="<?php echo base_url('custom/css/main.css');?>">
   <!-- Main JS -->

@@ -12,40 +12,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 <div class="card">
     <h5 class="card-header">Calculadora</h5>
     <div class="card-body">
-        <!-- Font Awsome -->
-        <link async rel="stylesheet" type="text/css" href="<?php echo base_url('plugin/fontawesome/css/fontawesome-all.min.css');?>">
-        <!-- jQuery Form -->
-        <script type="text/javascript" src="<?php echo base_url('plugin/jQuery_Form/jquery.form.js');?>"></script>
-        <script>
-            $(window).on('load', function () {
-                $('.btn').on('click', function () {
-                    $(this).button('loading');
-                })
-            })
-            var submmitCalculaterValues = function(){
-                var form = $('form#CALC_form');
-                var sub = $('button.btn.btn-primary#CALC_Send_BTN');
-                $('.calc-btns .text-warning.d-none').removeClass('d-inline');
-                sub.prop('disabled', true).html(sub.attr('data-loading-text'));
-                var options = {
-                    success: showResponse
-                };
-                form.ajaxSubmit(options);
-                return false;
-            }
-            var showResponse = function(responseText, statusText, xhr, $form){
-                var response = JSON.parse(responseText);
-                console.log(response);
-                var sub = $('button.btn.btn-primary#CALC_Send_BTN');
-                sub.prop('disabled', false).html(sub.attr('data-original-text'));
-                if(response.success){
-
-                }else {
-                    $('.calc-btns .text-warning.d-none').addClass('d-inline');
-                }
-                sub.prop('disabled', false).html(sub.attr('data-original-text'));
-            }
-        </script>
         <form method="post" action="<?php echo base_url('calculator/submit_values');?>" onsubmit="event.preventDefault(); submmitCalculaterValues();" id="CALC_form">
             <div class="form-row">
                 <div class="form-group col-sm-6">
@@ -53,11 +19,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                     <div class="row pl-4">
                         <div class="form-check col-xs-6 col-sm-3">
                             <input type="radio" class="form-check-input" id="gender_m" name="gender" value="m" required>
-                            <label class="form-check-label" for="gender_m">Male</label>
+                            <label class="form-check-label" for="gender_m">Homem</label>
                         </div>
                         <div class="form-check col-xs-6 col-sm-3">
                             <input type="radio" class="form-check-input" id="gender_f" name="gender" value="f" required>
-                            <label class="form-check-label" for="gender_f">Female</label>
+                            <label class="form-check-label" for="gender_f">Mulher</label>
                         </div>
                     </div>
                 </div>
@@ -73,17 +39,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-6">
-                    <label for="calc_CT">col-sm-6esterol total (TC)</label>
+                    <label for="calc_CT">Colesterol total (TC)</label>
                     <input type="number" min="0" class="form-control" id="calc_CT" name="TC" >
                 </div>
                 <div class="form-group col-sm-6">
-                    <label for="calc_CLBD">col-sm-6esterol das lipoproteínas de baixa densidade (LDL-C)</label>
+                    <label for="calc_CLBD">Colesterol das lipoproteínas de baixa densidade (LDL-C)</label>
                     <input type="number" min="0" class="form-control" id="calc_CLBD" name="LDL_C" >
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-6">
-                    <label for="calc_CLAD">col-sm-6esteroL das lipoproteínas de alta densidade (HDL-C)</label>
+                    <label for="calc_CLAD">ColesteroL das lipoproteínas de alta densidade (HDL-C)</label>
                     <input type="number" min="0" class="form-control" id="calc_CLAD" name="HDL_C" >
                 </div>
                 <div class="form-group col-sm-6">
@@ -108,7 +74,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                     <small class="form-text text-muted">Calculado automaticamente (TC menos HDL-C)</small>
                 </div>
                 <div class="form-group col-sm-6">
-                    <label for="calc_CPDLBD">col-sm-6esterol das partículaspequenas e densas das lipoproteínas de baixa densidade (sdLDL-C)</label>
+                    <label for="calc_CPDLBD">Colesterol das partículaspequenas e densas das lipoproteínas de baixa densidade (sdLDL-C)</label>
                     <input type="number" min="0" class="form-control" id="calc_CPDLBD" name="sdLDL_C" >
                 </div>
             </div>
@@ -141,5 +107,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                 <button class="btn btn-light" type="reset">Reset</button>
             </div>
         </form>
+        <!-- jQuery Form -->
+        <script type="text/javascript" src="<?php echo base_url('plugin/jQuery_Form/jquery.form.js');?>"></script>
+        <!-- CALCULATOR JS-->
+        <script type="text/javascript" src="<?php echo base_url('custom/js/calculator.js');?>"></script>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="calc_result_modal" tabindex="-1" role="dialog" aria-labelledby="calc_result_modal_title" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="calc_result_modal_title">Resultado</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+        </div>
     </div>
 </div>
