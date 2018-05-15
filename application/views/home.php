@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                         <option value="1829">18-29</option>
                         <option value="3039">30-39</option>
                         <option value="4049">40-49</option>
-                        <option value="5059">50-59</option>
+                        <option value="5059">> 50</option>
                     </select>
                 </div>
             </div>
@@ -110,7 +110,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
         <!-- jQuery Form -->
         <script type="text/javascript" src="<?php echo base_url('plugin/jQuery_Form/jquery.form.js');?>"></script>
         <!-- CALCULATOR JS-->
-        <script type="text/javascript" src="<?php echo base_url('custom/js/calculator.js');?>"></script>
+        <script type="text/javascript" src="<?php echo base_url('custom/js/calculator.js?cleancache=true');?>"></script>
     </div>
 </div>
 <!-- Modal -->
@@ -124,7 +124,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                 </button>
             </div>
             <div class="modal-body">
+                <div class="row" id="graphResult">
 
+                </div>
             </div>
         </div>
     </div>
