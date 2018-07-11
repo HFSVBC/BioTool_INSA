@@ -1,5 +1,7 @@
 body{padding: 70px 0 50px 0;}
 footer p{margin: 0;}
+.text-orange{color: var(--orange);}
+.back-orange{background-color: var(--orange);}
 /*CALCULATOR CSS*/
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {

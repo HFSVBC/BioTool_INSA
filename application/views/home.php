@@ -33,7 +33,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                         <option value="1829">18-29</option>
                         <option value="3039">30-39</option>
                         <option value="4049">40-49</option>
-                        <option value="5059">> 50</option>
+                        <option value="5059">50-59</option>
+                        <option value="1859">18-59 (for testing)</option>
                     </select>
                 </div>
             </div>

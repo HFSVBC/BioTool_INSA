@@ -74,12 +74,17 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> '',
-	'hostname' => 'localhost:8889',
-	'username' => 'root',
-	'password' => 'root',
-	'database' => 'bioTool_2MEvRi',
-	'dbdriver' => 'mysqli',
+	'dsn'	   => 'pgsql:'.getenv('DATABASE_HOST').';port=5432;dbname='.getenv('DATABASE_NAME'),
+	'hostname' => getenv('DATABASE_HOST'),
+	'username' => getenv('DATABASE_USER'),
+	'password' => getenv('DATABASE_PASS'),
+	'database' => getenv('DATABASE_NAME'),
+	'dbdriver' => 'pdo',
+	// 'hostname' => 'localhost:8889',
+	// 'username' => 'root',
+	// 'password' => 'root',
+	// 'database' => 'bioTool_2MEvRi',
+	// 'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
