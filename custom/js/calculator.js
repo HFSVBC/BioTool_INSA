@@ -11,11 +11,11 @@ function percentileResult(value, type) {
                 </div>`;
 }
 let convertType = {
-    "TC": {"name": "Colesterol total (TC)", "span": {5: 5, 10: 6.25, 25: 12.5, 50: 20, 75: 37.5, 90: 62.5, 95: 87.5}},
-    "LCL_C": {"name": "Colesterol das lipoproteínas de baixa densidade (LDL-C)", "span": {5: 5, 10: 6.25, 25: 12.5, 50: 20, 75: 37.5, 90: 62.5, 95: 87.5}},
+    "TC": {"name": "Colesterol total (TC)", "span": {5: 37.5, 10: 6.25, 25: 12.5, 50: 20, 75: 37.5, 90: 62.5, 95: 87.5}},
+    "LCL_C": {"name": "Colesterol das lipoproteínas de baixa densidade (LDL-C)", "span": {5: 37.5, 10: 6.25, 25: 12.5, 50: 20, 75: 37.5, 90: 62.5, 95: 87.5}},
     "HDL_C": {"name": "ColesteroL das lipoproteínas de alta densidade (HDL-C)", "span": {5: 87.5, 10: 62.5, 25: 37.5, 50: 20, 75: 12.5, 90: 6.95, 95: 5}},
     "TG": {"name": "Triglicéridos (TG)", "span": {5: 5, 10: 6.25, 25: 12.5, 50: 20, 75: 37.5, 90: 62.5, 95: 87.5}},
-    "ApoB": {"name": "Apolipoproteína B (ApoB)", "span": {5: 5, 10: 6.25, 25: 12.5, 50: 20, 75: 37.5, 90: 62.5, 95: 87.5}},
+    "ApoB": {"name": "Apolipoproteína B (ApoB)", "span": {5: 37.5, 10: 6.25, 25: 12.5, 50: 20, 75: 37.5, 90: 62.5, 95: 87.5}},
     "ApoA": {"name": "Apolipoproteína A1 (ApoA1)", "span": {5: 87.5, 10: 62.5, 25: 37.5, 50: 20, 75: 12.5, 90: 6.95, 95: 5}},
     "Non_HDL_C": {"name": "Non-HDL-C", "span": {5: 5, 10: 6.25, 25: 12.5, 50: 20, 75: 37.5, 90: 62.5, 95: 87.5}},
     "sdLDL_C": {"name": "Colesterol das partículaspequenas e densas das lipoproteínas de baixa densidade (sdLDL-C)", "span": {5: 5, 10: 6.25, 25: 12.5, 50: 20, 75: 37.5, 90: 62.5, 95: 87.5}},
