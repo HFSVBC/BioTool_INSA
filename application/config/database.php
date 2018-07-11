@@ -74,7 +74,7 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	   => 'pgsql:'.getenv('DATABASE_HOST').';port=5432;dbname='.getenv('DATABASE_NAME'),
+	'dsn'	   => 'pgsql:host='.getenv('DATABASE_HOST').';port=5432;dbname='.getenv('DATABASE_NAME'),
 	'hostname' => getenv('DATABASE_HOST'),
 	'username' => getenv('DATABASE_USER'),
 	'password' => getenv('DATABASE_PASS'),
