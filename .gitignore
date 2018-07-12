@@ -20,4 +20,5 @@ application/logs/*
 .idea/*
 
 #extra
-application/config/*
+application/config/autoload.php
+application/config/database.php
