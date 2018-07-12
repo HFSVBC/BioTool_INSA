@@ -16,6 +16,10 @@ div.form-check.col-sm-3 .form-check-label{padding: 0}
 /*CALCULATOR RESULT CSS*/
 .modal-body .row{padding: 0;margin: 0;}
 .result_color_scale_cont{position: relative;}
+#resultPresenterToggle{
+    margin: 0rem 0rem -1rem auto;
+}
+#tableResult{display: none;}
 .result_color_scale_cont .row{
     position: absolute;
     bottom: 0;
@@ -25,10 +29,14 @@ div.form-check.col-sm-3 .form-check-label{padding: 0}
 .result_color_scale_cont .row span{
     position: absolute;
     z-index: 10;
-    color: white;
+    background: black;
+    width: 1%;
+    height: 130%;
+    top: -15%;
+    /* color: white;
     line-height: 1.5rem;
     margin-left: -9.5px;
     width: 19px;
     text-align: center;
-    font-weight: 900;
+    font-weight: 900; */
 }

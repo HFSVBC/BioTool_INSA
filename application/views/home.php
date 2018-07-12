@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-6">
-                    <label for="calc_CLAD">ColesteroL das lipoproteínas de alta densidade (HDL-C)</label>
+                    <label for="calc_CLAD">Colesterol das lipoproteínas de alta densidade (HDL-C)</label>
                     <input type="number" min="0" class="form-control" id="calc_CLAD" name="HDL_C" >
                 </div>
                 <div class="form-group col-sm-6">
@@ -97,13 +97,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                     <small class="form-text text-muted">Calculado automaticamente (sdLDL-C a dividir por LDL-C)</small>
                 </div>
                 <div class="form-group col-sm-6">
-                    <label for="calc_RC">Remnant cholesterol</label>
+                    <label for="calc_RC">Colesterol remanescente</label>
                     <input type="number" min="0" class="form-control" id="calc_RC" name="RC" readonly>
                     <small class="form-text text-muted">Calculado automaticamente (TC menos LDL-C e HDL-C)</small>
                 </div>
             </div>
             <div class="calc-btns text-right">
-                <span class="text-warning d-none">Campos mal preenchidos. </span>
+                <span class="text-warning d-none">Campos mal preenchidos.</span>
                 <button class="btn btn-primary" id="CALC_Send_BTN" type="submit" data-loading-text="A Calcular <i class='fas fa-spinner fa-spin'></i>" data-original-text="Calcular">Calcular</button>
                 <button class="btn btn-light" type="reset">Reset</button>
             </div>
@@ -120,14 +120,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="calc_result_modal_title">Resultado</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <div class="btn-group" id="resultPresenterToggle" role="group" aria-label="Apresentação dos Resultados">
+                    <button type="button" class="btn btn-primary btn-changeView active" data-target="graph">Paciente</button>
+                    <button type="button" class="btn btn-primary btn-changeView" data-target="table">Proficional de Saúde</button>
+                </div>
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-                </button>
+                </button> -->
             </div>
             <div class="modal-body">
                 <div class="row" id="graphResult">
 
                 </div>
+                <div id="tableResult">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Marcador</th>
+                                <th scope="col">Percentile</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableResult_tbody">
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-dismiss="modal">Fechar</button>
             </div>
         </div>
     </div>
