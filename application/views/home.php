@@ -122,7 +122,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                 <h5 class="modal-title" id="calc_result_modal_title">Resultado</h5>
                 <div class="btn-group" id="resultPresenterToggle" role="group" aria-label="Apresentação dos Resultados">
                     <button type="button" class="btn btn-primary btn-changeView active" data-target="graph">Paciente</button>
-                    <button type="button" class="btn btn-primary btn-changeView" data-target="table">Proficional de Saúde</button>
+                    <button type="button" class="btn btn-primary btn-changeView" data-target="table">Profissional de Saúde</button>
                 </div>
                 <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
