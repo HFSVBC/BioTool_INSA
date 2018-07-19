@@ -10,23 +10,26 @@ input[type=number]::-webkit-outer-spin-button {
     appearance: none;
     margin: 0;
 }
+.b-darker{
+    border: 1px solid #525456;
+}
 .card{margin: 0 15px;}
 div.form-check.col-sm-3 .form-check-label{padding: 0}
 .calc-btns button{cursor: pointer;}
 /*CALCULATOR RESULT CSS*/
 .modal-body .row{padding: 0;margin: 0;}
-.result_color_scale_cont{position: relative;}
 #resultPresenterToggle{
     margin: 0rem 0rem -1rem auto;
 }
 #tableResult{display: none;}
-.result_color_scale_cont .row{
+/* .result_color_scale_cont .row{
     position: absolute;
     bottom: 0;
     left: 15px;
     right: 15px;
-}
-.result_color_scale_cont .row span{
+} */
+.result_color_scale{position: relative;}
+.result_color_scale.row span{
     position: absolute;
     z-index: 10;
     background: black;
@@ -39,4 +42,8 @@ div.form-check.col-sm-3 .form-check-label{padding: 0}
     width: 19px;
     text-align: center;
     font-weight: 900; */
+}
+.result_color_scale_cont > label, .result_color_scale_cont > small{
+    margin-bottom: 0;
+    display: block;
 }

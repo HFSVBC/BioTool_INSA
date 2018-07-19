@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                 </div>
                 <div class="form-group col-sm-6">
                     <label for="age">Idade *</label>
-                    <select class="form-control" id="age" name="age" required>
+                    <select class="form-control custom-select b-darker" id="age" name="age" required>
                         <option value="1829">18-29</option>
                         <option value="3039">30-39</option>
                         <option value="4049">40-49</option>
@@ -40,54 +40,62 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-6">
-                    <label for="calc_CT">Colesterol total (TC)</label>
-                    <input type="number" min="0" class="form-control" id="calc_CT" name="TC" >
+                    <label for="calc_CT">Colesterol total (CT)</label>
+                    <input type="number" min="0" class="form-control b-darker" id="calc_CT" name="TC" >
                 </div>
                 <div class="form-group col-sm-6">
                     <label for="calc_CLBD">Colesterol das lipoproteínas de baixa densidade (LDL-C)</label>
-                    <input type="number" min="0" class="form-control" id="calc_CLBD" name="LDL_C" >
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" id="calc_CLBD_activator" aria-label="Marcar para ativar o campo de texto">
+                            </div>
+                        </div>
+                        <input type="number" min="0" class="form-control" id="calc_CLBD" name="LDL_C" readonly>
+                    </div>
+                    <small class="form-text text-muted">Pode ser calculado automaticamente (TC menos HDL-C - TG a dividir por 5)</small>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-6">
                     <label for="calc_CLAD">Colesterol das lipoproteínas de alta densidade (HDL-C)</label>
-                    <input type="number" min="0" class="form-control" id="calc_CLAD" name="HDL_C" >
+                    <input type="number" min="0" class="form-control b-darker" id="calc_CLAD" name="HDL_C" >
                 </div>
                 <div class="form-group col-sm-6">
                     <label for="calc_T">Triglicéridos (TG)</label>
-                    <input type="number" min="0" class="form-control" id="calc_T" name="TG" >
+                    <input type="number" min="0" class="form-control b-darker" id="calc_T" name="TG" >
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-6">
                     <label for="calc_AB">Apolipoproteína B (ApoB)</label>
-                    <input type="number" min="0" class="form-control" id="calc_AB" name="ApoB" >
+                    <input type="number" min="0" class="form-control b-darker" id="calc_AB" name="ApoB" >
                 </div>
                 <div class="form-group col-sm-6">
                     <label for="calc_AA">Apolipoproteína A1 (ApoA1)</label>
-                    <input type="number" min="0" class="form-control" id="calc_AA" name="ApoA" >
+                    <input type="number" min="0" class="form-control b-darker" id="calc_AA" name="ApoA" >
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-6">
-                    <label for="calc_HDL_C">Non-HDL-C</label>
+                    <label for="calc_HDL_C">não-HDL-C</label>
                     <input type="number" min="0" class="form-control" id="calc_HDL_C" name="Non_HDL_C" readonly>
                     <small class="form-text text-muted">Calculado automaticamente (TC menos HDL-C)</small>
                 </div>
                 <div class="form-group col-sm-6">
                     <label for="calc_CPDLBD">Colesterol das partículaspequenas e densas das lipoproteínas de baixa densidade (sdLDL-C)</label>
-                    <input type="number" min="0" class="form-control" id="calc_CPDLBD" name="sdLDL_C" >
+                    <input type="number" min="0" class="form-control b-darker" id="calc_CPDLBD" name="sdLDL_C" >
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-6">
                     <label for="calc_LA">Lipoproteína(a) (Lp(a))</label>
-                    <input type="number" min="0" class="form-control" id="calc_LA" name="Lp_a" >
+                    <input type="number" min="0" class="form-control b-darker" id="calc_LA" name="Lp_a" >
                 </div>
                 <div class="form-group col-sm-6">
                     <label for="calc_AB_AA">ApoB/ApoA1</label>
                     <input type="number" min="0" class="form-control" id="calc_AB_AA" name="ApoB_ApoA" readonly>
-                    <small class="form-text text-muted">Calculado automaticamente (ApoB a dividir por AboA1)</small>
+                    <small class="form-text text-muted">Calculado automaticamente (ApoB a dividir por ApoA1)</small>
                 </div>
             </div>
             <div class="form-row">
@@ -97,7 +105,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                     <small class="form-text text-muted">Calculado automaticamente (sdLDL-C a dividir por LDL-C)</small>
                 </div>
                 <div class="form-group col-sm-6">
-                    <label for="calc_RC">Colesterol remanescente</label>
+                    <label for="calc_RC">Colesterol remanescente (VLDL)</label>
                     <input type="number" min="0" class="form-control" id="calc_RC" name="RC" readonly>
                     <small class="form-text text-muted">Calculado automaticamente (TC menos LDL-C e HDL-C)</small>
                 </div>
@@ -121,7 +129,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
             <div class="modal-header">
                 <h5 class="modal-title" id="calc_result_modal_title">Resultado</h5>
                 <div class="btn-group" id="resultPresenterToggle" role="group" aria-label="Apresentação dos Resultados">
-                    <button type="button" class="btn btn-primary btn-changeView active" data-target="graph">Paciente</button>
+                    <button type="button" class="btn btn-primary btn-changeView active" data-target="graph">Utente</button>
                     <button type="button" class="btn btn-primary btn-changeView" data-target="table">Profissional de Saúde</button>
                 </div>
                 <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">

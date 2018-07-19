@@ -80,12 +80,14 @@ $db['default'] = array(
 	'password' => getenv('DATABASE_PASS'),
 	'database' => getenv('DATABASE_NAME'),
 	'dbdriver' => 'pdo',
+	
 	// 'dsn'	   => '',
 	// 'hostname' => 'localhost:8889',
 	// 'username' => 'root',
 	// 'password' => 'root',
 	// 'database' => 'bioTool_2MEvRi',
 	// 'dbdriver' => 'mysqli',
+	
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
