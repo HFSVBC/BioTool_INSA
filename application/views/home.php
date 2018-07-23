@@ -48,12 +48,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
-                                <input type="checkbox" id="calc_CLBD_activator" aria-label="Marcar para ativar o campo de texto">
+                                <input type="checkbox" id="calc_CLBD_activator" aria-label="Marcar para ativar o campo de texto" data-toggle="tooltip" data-placement="bottom" title="Direto">
                             </div>
                         </div>
                         <input type="number" min="0" class="form-control" id="calc_CLBD" name="LDL_C" readonly>
                     </div>
-                    <small class="form-text text-muted">Pode ser calculado automaticamente (TC menos HDL-C - TG a dividir por 5)</small>
+                    <small class="form-text text-muted">Pode ser por medição direta (colocar o tic) ou pode ser calculado automaticamente (TC menos HDL-C menos TG a dividir por 5)</small>
                 </div>
             </div>
             <div class="form-row">
@@ -129,7 +129,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
             <div class="modal-header">
                 <h5 class="modal-title" id="calc_result_modal_title">Resultado</h5>
                 <div class="btn-group" id="resultPresenterToggle" role="group" aria-label="Apresentação dos Resultados">
-                    <button type="button" class="btn btn-primary btn-changeView active" data-target="graph">Utente</button>
+                    <button type="button" class="btn btn-primary btn-changeView active" id="graphViewTrigger" data-target="graph">Utente</button>
                     <button type="button" class="btn btn-primary btn-changeView" data-target="table">Profissional de Saúde</button>
                 </div>
                 <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">

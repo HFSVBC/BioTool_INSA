@@ -21,11 +21,16 @@ $(window).on("load", function() {
     $("#calc_CLBD_activator").on("change", function(){
         if($(this).is(':checked')){
             userChangedLDL = true;
+            $(this).tooltip('hide').attr('data-original-title', 'Automático').tooltip('show');
             $('#calc_CLBD').prop('readonly', false).addClass('b-darker');
         }else{
             userChangedLDL = false;
+            $(this).tooltip('hide').attr('data-original-title', 'Direto').tooltip('show');
             $('#calc_CLBD').prop('readonly', true).removeClass('b-darker');
         }
+    });
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
     });
 });
 

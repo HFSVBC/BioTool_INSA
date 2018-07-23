@@ -13,13 +13,13 @@ function percentileGraphResult(value, type) {
                         <div class="`+convertType[type]["color"][3]+` p-2 pb-3 col-3 result_color_scale"></div>
                     </div>
                     <label for="`+type+`">`+((convertType[type]["sigla"] != "") ? convertType[type]["sigla"] : convertType[type]["name"])+`</label>
-                    <small>`+((convertType[type]["sigla"] != "") ? convertType[type]["name"] : "")+`</small>
                 </div>`;
 }
+{/* <small>`+((convertType[type]["sigla"] != "") ? convertType[type]["name"] : "")+`</small> */}
 {/* <p>`+convertType[type]["name"]+`</p> */}
 function percentileTableResult(value, type) {
     return `<tr>
-                <td>`+((convertType[type]["sigla"] != "") ? convertType[type]["sigla"]+" - " : "")+convertType[type]["name"]+`</td>
+                <td>`+((convertType[type]["sigla"] != "") ? convertType[type]["sigla"] : convertType[type]["name"])+`</td>
                 <td>`+value+`</td>
             </tr>`;
 }
@@ -27,11 +27,11 @@ function percentileTableResult(value, type) {
 let convertType = {
     "TC": {"name": "Colesterol total", "sigla": "", "span": {5: 37.5, 10: 6.25, 25: 12.5, 50: 20, 75: 37.5, 90: 62.5, 95: 87.5}, "color": ['bg-success', 'bg-warning', 'back-orange', 'bg-danger']},
     "LCL_C": {"name": "Colesterol das lipoproteínas de baixa densidade", "sigla": "LDL-C", "span": {5: 37.5, 10: 6.25, 25: 12.5, 50: 20, 75: 37.5, 90: 62.5, 95: 87.5}, "color": ['bg-success', 'bg-warning', 'back-orange', 'bg-danger']},
-    "HDL_C": {"name": "Colesterol das lipoproteínas de alta densidade", "sigla": "HDL-C", "span": {5: 87.5, 10: 62.5, 25: 37.5, 50: 20, 75: 12.5, 90: 6.95, 95: 5}, "color": ['bg-success', 'bg-warning', 'back-orange', 'bg-danger']},
+    "HDL_C": {"name": "Colesterol das lipoproteínas de alta densidade", "sigla": "HDL-C", "span": {5: 5, 10: 6.25, 25: 12.5, 50: 20, 75: 37.5, 90: 62.5, 95: 87.5}, "color": ['bg-danger', 'back-orange', 'bg-warning', 'bg-success']},
     "TG": {"name": "Triglicéridos", "sigla": "","span": {5: 5, 10: 6.25, 25: 12.5, 50: 20, 75: 37.5, 90: 62.5, 95: 87.5}, "color": ['bg-success', 'bg-warning', 'back-orange', 'bg-danger']},
     "ApoB": {"name": "Apolipoproteína B", "sigla": "ApoB","span": {5: 37.5, 10: 6.25, 25: 12.5, 50: 20, 75: 37.5, 90: 62.5, 95: 87.5}, "color": ['bg-success', 'bg-warning', 'back-orange', 'bg-danger']},
     "ApoA": {"name": "Apolipoproteína A1", "sigla": "ApoA1", "span": {5: 5, 10: 6.25, 25: 12.5, 50: 20, 75: 37.5, 90: 62.5, 95: 87.5}, "color": ['bg-danger', 'back-orange', 'bg-warning', 'bg-success']},
-    "Non_HDL_C": {"name": "não-HDL-C", "sigla": "", "span": {5: 87.5, 10: 62.5, 25: 37.5, 50: 20, 75: 12.5, 90: 6.95, 95: 5}, "color": ['bg-danger', 'back-orange', 'bg-warning', 'bg-success']},
+    "Non_HDL_C": {"name": "não-HDL-C", "sigla": "", "span": {5: 87.5, 10: 62.5, 25: 37.5, 50: 20, 75: 12.5, 90: 6.95, 95: 5}, "color": ['bg-success', 'bg-warning', 'back-orange', 'bg-danger']},
     "sdLDL_C": {"name": "Colesterol das partículaspequenas e densas das lipoproteínas de baixa densidade", "sigla": "sdLDL-C", "span": {5: 5, 10: 6.25, 25: 12.5, 50: 20, 75: 37.5, 90: 62.5, 95: 87.5}, "color": ['bg-success', 'bg-warning', 'back-orange', 'bg-danger']},
     "Lp_a": {"name": "Lipoproteína(a)", "sigla": "Lp(a)", "span": {5: 5, 10: 6.25, 25: 12.5, 50: 20, 75: 37.5, 90: 62.5, 95: 87.5}, "color": ['bg-success', 'bg-warning', 'back-orange', 'bg-danger']},
     "ApoB_ApoA": {"name": "ApoB/ApoA1", "sigla": "", "span": {5: 5, 10: 6.25, 25: 12.5, 50: 20, 75: 37.5, 90: 62.5, 95: 87.5}, "color": ['bg-success', 'bg-warning', 'back-orange', 'bg-danger']},
@@ -65,6 +65,7 @@ var showResponse = function(responseText, statusText, xhr, $form){
         }
         $('#graphResult').html(htmlGraph);
         $('#tableResult_tbody').html(htmlTable);
+        changeView($('#graphViewTrigger'));
         $('#calc_result_modal').modal('show');
     }else {
         $('.calc-btns .text-warning.d-none').addClass('d-inline');
