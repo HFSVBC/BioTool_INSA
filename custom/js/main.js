@@ -21,13 +21,17 @@ $(window).on("load", function() {
     $("#calc_CLBD_activator").on("change", function(){
         if($(this).is(':checked')){
             userChangedLDL = true;
-            $(this).tooltip('hide').attr('data-original-title', 'Automático').tooltip('show');
+            // $(this).tooltip('hide').attr('data-original-title', 'Automático').tooltip('show');
             $('#calc_CLBD').prop('readonly', false).addClass('b-darker');
         }else{
             userChangedLDL = false;
-            $(this).tooltip('hide').attr('data-original-title', 'Direto').tooltip('show');
+            // $(this).tooltip('hide').attr('data-original-title', 'Direto').tooltip('show');
             $('#calc_CLBD').prop('readonly', true).removeClass('b-darker');
         }
+    });
+    reseizeLabel();
+    $( window ).resize(function() {
+        reseizeLabel();
     });
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
@@ -36,6 +40,19 @@ $(window).on("load", function() {
 
 var userChangedLDL = false;
 
+var reseizeLabel = function(){
+    var max_h = 0;
+    let l = $('#CALC_form>div>div>label');
+    l.each(function(){
+        let h = $(this).height();
+        if(h > max_h)
+            max_h = h;
+    });
+    l.each(function(){
+        let h = $(this).height()
+        $(this).css('padding-top', max_h-h);
+    });
+}
 var calculate_Non_HDL_C = function() {
     let result = parseInt($("#calc_CT").val()) - parseInt($("#calc_CLAD").val());
     $("#calc_HDL_C").val(result);

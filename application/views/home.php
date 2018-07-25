@@ -137,15 +137,64 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                 </button> -->
             </div>
             <div class="modal-body">
-                <div class="row" id="graphResult">
-
+                <div id="graphResult">
+                    <div class="row"></div>
+                    <hr>
+                    <div id="results_legend">
+                        <h5>Legenda</h5>
+                        <div class="row">
+                            <div class="col-md">
+                                <h6>Todos exceto HDL e APOA1</h6>
+                                <div id="colorLegend_cont">
+                                    <div class="row mb-2">
+                                        <div class="col-md-2 p-0"><div class="bg-success p-2 mt-1"></div></div>
+                                        <p class="col mb-0">Abaixo do percentil 50</p>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-md-2 p-0"><div class="bg-warning p-2 mt-1"></div></div>
+                                        <p class="col mb-0">Percentil 50-75</p>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-md-2 p-0"><div class="back-orange p-2 mt-1"></div></div>
+                                        <p class="col mb-0">Percentil 75-95</p>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-md-2 p-0"><div class="bg-danger p-2 mt-1"></div></div>
+                                        <p class="col mb-0">Percentil 95</p>
+                                    </div>
+                                </div>
+                                <p>LDL, CT e APOB abaixo percentil 5 amarelo.</p>
+                            </div>
+                            <div class="col-md">
+                                <h6>HDL E APOA1</h6>
+                                <div id="colorLegend_cont">
+                                    <div class="row mb-2">
+                                        <div class="col-md-2 p-0"><div class="bg-success p-2 mt-1"></div></div>
+                                        <p class="col mb-0">Acima do percentil 50</p>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-md-2 p-0"><div class="bg-warning p-2 mt-1"></div></div>
+                                        <p class="col mb-0">Percentil 25-50</p>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-md-2 p-0"><div class="back-orange p-2 mt-1"></div></div>
+                                        <p class="col mb-0">Percentil 5-25</p>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-md-2 p-0"><div class="bg-danger p-2 mt-1"></div></div>
+                                        <p class="col mb-0">Percentil 5</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div id="tableResult">
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
                                 <th scope="col">Marcador</th>
-                                <th scope="col">Percentile</th>
+                                <th scope="col">Percentil</th>
                             </tr>
                         </thead>
                         <tbody id="tableResult_tbody">

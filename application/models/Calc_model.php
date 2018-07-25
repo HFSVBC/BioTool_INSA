@@ -41,17 +41,23 @@ class Calc_model extends CI_Model{
         }else {
             $type = $this->db->escape($type);
 
-            $sql = "SELECT percentile
+            $sql = "SELECT percentile, ABS(val - $value) AS 'dist'
                     FROM data_29uWFp
                     WHERE gender = $gender AND age = $age AND type = $type
-                    ORDER BY ABS(val - $value)
-                    LIMIT 1";
+                    ORDER BY ABS(val - $value) ASC, percentile ASC
+                    LIMIT 2";
 
             $query = $this->db->query($sql);
-            $row = $query->row();
+            $result = $query->result_array();
 
-            if (!empty($row)) {
-                return array(true, $row->percentile);
+            if (!empty($result)) {
+                $val;
+                if((string)$result[0]['dist'] == (string)$result[1]['dist']){
+                    $val = (string)$result[0]['percentile'].'-'.(string)$result[1]['percentile'];
+                }else{
+                    $val = $result[0]['percentile'];
+                }
+                return array(true, $val);
             } else {
                 return array(false, '');
             }
