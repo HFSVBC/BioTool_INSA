@@ -41,7 +41,7 @@ class Calc_model extends CI_Model{
         }else {
             $type = $this->db->escape($type);
 
-            $sql = "SELECT percentile, ABS(val - $value) AS 'dist'
+            $sql = "SELECT percentile, ABS(val - $value) AS dist
                     FROM data_29uWFp
                     WHERE gender = $gender AND age = $age AND type = $type
                     ORDER BY ABS(val - $value) ASC, percentile ASC
