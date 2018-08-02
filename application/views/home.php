@@ -44,6 +44,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                     <input type="number" min="0" class="form-control b-darker" id="calc_CT" name="TC" >
                 </div>
                 <div class="form-group col-sm-6">
+                    <label for="calc_CLAD">Colesterol das lipoproteínas de alta densidade (HDL-C)</label>
+                    <input type="number" min="0" class="form-control b-darker" id="calc_CLAD" name="HDL_C" >
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-sm-6">
+                    <label for="calc_T">Triglicéridos (TG)</label>
+                    <input type="number" min="0" class="form-control b-darker" id="calc_T" name="TG" >
+                </div>
+                <div class="form-group col-sm-6">
                     <label for="calc_CLBD">Colesterol das lipoproteínas de baixa densidade (LDL-C)</label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -58,14 +68,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-6">
-                    <label for="calc_CLAD">Colesterol das lipoproteínas de alta densidade (HDL-C)</label>
-                    <input type="number" min="0" class="form-control b-darker" id="calc_CLAD" name="HDL_C" >
+                    <label for="calc_HDL_C">não-HDL-C</label>
+                    <input type="number" min="0" class="form-control" id="calc_HDL_C" name="Non_HDL_C" readonly>
+                    <small class="form-text text-muted">Calculado automaticamente (TC menos HDL-C)</small>
                 </div>
                 <div class="form-group col-sm-6">
-                    <label for="calc_T">Triglicéridos (TG)</label>
-                    <input type="number" min="0" class="form-control b-darker" id="calc_T" name="TG" >
+                    <label for="calc_RC">Colesterol remanescente (VLDL)</label>
+                    <input type="number" min="0" class="form-control" id="calc_RC" name="RC" readonly>
+                    <small class="form-text text-muted">Calculado automaticamente (TC menos LDL-C e HDL-C)</small>
                 </div>
             </div>
+            <hr>
             <div class="form-row">
                 <div class="form-group col-sm-6">
                     <label for="calc_AB">Apolipoproteína B (ApoB)</label>
@@ -74,17 +87,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                 <div class="form-group col-sm-6">
                     <label for="calc_AA">Apolipoproteína A1 (ApoA1)</label>
                     <input type="number" min="0" class="form-control b-darker" id="calc_AA" name="ApoA" >
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-sm-6">
-                    <label for="calc_HDL_C">não-HDL-C</label>
-                    <input type="number" min="0" class="form-control" id="calc_HDL_C" name="Non_HDL_C" readonly>
-                    <small class="form-text text-muted">Calculado automaticamente (TC menos HDL-C)</small>
-                </div>
-                <div class="form-group col-sm-6">
-                    <label for="calc_CPDLBD">Colesterol das partículaspequenas e densas das lipoproteínas de baixa densidade (sdLDL-C)</label>
-                    <input type="number" min="0" class="form-control b-darker" id="calc_CPDLBD" name="sdLDL_C" >
                 </div>
             </div>
             <div class="form-row">
@@ -100,14 +102,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-6">
+                    <label for="calc_CPDLBD">Colesterol das partículaspequenas e densas das lipoproteínas de baixa densidade (sdLDL-C)</label>
+                    <input type="number" min="0" class="form-control b-darker" id="calc_CPDLBD" name="sdLDL_C" >
+                </div>
+                <div class="form-group col-sm-6">
                     <label for="calc_sdLDL_LDL">sdLDL-C/LDL-C</label>
                     <input type="number" min="0" class="form-control" id="calc_sdLDL_LDL" name="sdLDL_C_LDL_C" readonly>
                     <small class="form-text text-muted">Calculado automaticamente (sdLDL-C a dividir por LDL-C)</small>
-                </div>
-                <div class="form-group col-sm-6">
-                    <label for="calc_RC">Colesterol remanescente (VLDL)</label>
-                    <input type="number" min="0" class="form-control" id="calc_RC" name="RC" readonly>
-                    <small class="form-text text-muted">Calculado automaticamente (TC menos LDL-C e HDL-C)</small>
                 </div>
             </div>
             <div class="calc-btns text-right">
@@ -143,29 +144,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                     <div id="results_legend">
                         <h5>Legenda</h5>
                         <div class="row">
-                            <div class="col-md">
-                                <h6>Todos exceto HDL e APOA1</h6>
+                            <div class="col-12">
+                                <!-- <h6>Todos exceto HDL e APOA1</h6> -->
                                 <div id="colorLegend_cont">
-                                    <div class="row mb-2">
+                                    <div class="row mb-1">
                                         <div class="col-md-2 p-0"><div class="bg-success p-2 mt-1"></div></div>
-                                        <p class="col mb-0">Abaixo do percentil 50</p>
+                                        <!-- <p class="col mb-0">Abaixo do percentil 50</p> -->
+                                        <p class="col mb-0">Valor Desejável</p>                                      
                                     </div>
-                                    <div class="row mb-2">
+                                    <div class="row mb-1">
                                         <div class="col-md-2 p-0"><div class="bg-warning p-2 mt-1"></div></div>
-                                        <p class="col mb-0">Percentil 50-75</p>
+                                        <!-- <p class="col mb-0">Percentil 50-75</p> -->
+                                        <p class="col mb-0">Valor Perto do  Desejável</p>
                                     </div>
-                                    <div class="row mb-2">
+                                    <div class="row mb-1">
                                         <div class="col-md-2 p-0"><div class="back-orange p-2 mt-1"></div></div>
-                                        <p class="col mb-0">Percentil 75-95</p>
+                                        <!-- <p class="col mb-0">Percentil 50-75</p> -->
+                                        <p class="col mb-0">Valor Longe do  Desejável</p>
+                                        <p class="col mb-0"></p>
                                     </div>
-                                    <div class="row mb-2">
+                                    <div class="row mb-1">
                                         <div class="col-md-2 p-0"><div class="bg-danger p-2 mt-1"></div></div>
-                                        <p class="col mb-0">Percentil 95</p>
+                                        <p class="col mb-0">Valor Muito Longe do  Desejável</p>
                                     </div>
                                 </div>
-                                <p>LDL, CT e APOB abaixo percentil 5 amarelo.</p>
+                                <!-- <p>LDL, CT e APOB abaixo percentil 5 amarelo.</p> -->
                             </div>
-                            <div class="col-md">
+                            <!-- <div class="col-6">
                                 <h6>HDL E APOA1</h6>
                                 <div id="colorLegend_cont">
                                     <div class="row mb-2">
@@ -185,7 +190,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                                         <p class="col mb-0">Percentil 5</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
